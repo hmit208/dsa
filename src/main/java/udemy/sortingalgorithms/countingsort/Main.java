@@ -1,4 +1,4 @@
-package udemy.countingsort;
+package udemy.sortingalgorithms.countingsort;
 
 public class Main {
     static int[] countingSort(int[] input) {
@@ -12,10 +12,7 @@ public class Main {
         }
         printArr(countArray);
         for (int i = 0;  i < input.length; i++) {
-//            int key = --countArray[input[i]];
-//            output[key] = input[i];
             output[--countArray[input[i]]] = input[i];
-//            countArray[input[i]]--;
         }
 
 

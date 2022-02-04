@@ -1,4 +1,4 @@
-package udemy.mergesort;
+package udemy.sortingalgorithms.mergesort;
 
 public class Main {
     public static  void main(String[] args){
@@ -8,6 +8,17 @@ public class Main {
         for (int i = 0; i < intArray.length; i++) {
             System.out.println(intArray[i]);
         }
+    }
+
+    static void mergeSort2(int[] input, int start, int end) {
+        if (end - start < 2) {
+            return;
+        }
+        int middle = (start + end) /2;
+        mergeSort2(input, start, middle - 1);
+        mergeSort2(input, middle, end);
+
+
     }
 
     public static void mergeSort(int[] input, int start, int end) {
@@ -21,7 +32,7 @@ public class Main {
     }
 
     public static void merge(int[] input, int start, int mid, int end) {
-        if (input[mid - 1] < input[mid]) {
+        if (input[mid - 1] > input[mid]) {
             return;
         }
 
@@ -30,7 +41,7 @@ public class Main {
         int tempIndex = 0;
         int[] temp = new int[end - start];
         while (i < mid && j < end) {
-            temp[tempIndex++] = input[i] <= input[j] ? input[i++] : input[j++];
+            temp[tempIndex++] = input[i] >= input[j] ? input[i++] : input[j++];
         }
 
         System.arraycopy(input, i, input, start + tempIndex, mid - i);
